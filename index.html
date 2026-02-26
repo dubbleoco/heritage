@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heritage Interior Systems</title>
+<!-- Outfit for body text, Space Mono for labels -->
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/*
+  FONT SETUP — John Muir Sans by Vicarel Studios
+  Drop your .woff files into /fonts/ next to this HTML:
+    VS-John-Muir-Sans-Thin.woff
+    VS-John-Muir-Sans-Light.woff
+    VS-John-Muir-Sans-Regular.woff
+    VS-John-Muir-Sans-Wide.woff
+*/
+@font-face {
+  font-family: 'John Muir Sans';
+  src: url('fonts/VS-John-Muir-Sans-Thin.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'John Muir Sans';
+  src: url('fonts/VS-John-Muir-Sans-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'John Muir Sans';
+  src: url('fonts/VS-John-Muir-Sans-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'John Muir Wide';
+  src: url('fonts/VS-John-Muir-Sans-Wide.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/*
+  FONT STRATEGY:
+  - John Muir Wide  → hero h1, section h2s, sentinel title (big impact headlines)
+  - John Muir Sans  → product card h3s, process h4s, nav brand, buttons (medium headlines)
+  - Outfit           → body text, descriptions, paragraphs (readability)
+  - Space Mono       → labels, tags, prices, spec values (technical/data)
+
+  Falls back to Outfit if John Muir files aren't loaded yet.
+*/
+
+:root{--forest:#1C2E1F;--gd:#2B4A30;--gm:#3D6B44;--g:#4E8C57;--gl:#6AAF6E;--sage:#8FBF7E;--td:#9C8660;--tan:#C4A96D;--tl:#D9C48F;--sand:#E8D9B5;--sl:#F0E6CE;--cream:#F7F2E8;--bone:#FDFAF3;--or:#C95D2C;--orl:#E0804E;--ink:#151A13;
+--jm:'John Muir Sans','Outfit',sans-serif;
+--jmw:'John Muir Wide','John Muir Sans','Outfit',sans-serif;
+--body:'Outfit',sans-serif;
+--mono:'Space Mono',monospace}
+
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:var(--body);background:var(--bone);color:var(--ink);overflow-x:hidden}a{color:inherit;text-decoration:none}
+
+/* ===== NAV ===== */
+.nav{position:fixed;top:0;width:100%;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:0 2.5rem;height:52px;background:var(--forest)}
+.nav-left{font-family:var(--jm);font-weight:400;font-size:.85rem;color:var(--sand);letter-spacing:.05em;text-transform:uppercase}.nav-left span{font-family:var(--body);color:var(--tan);font-weight:600;opacity:.6;margin-left:.4rem;font-size:.65rem;text-transform:none;letter-spacing:0}
+.nav-right{display:flex;gap:.3rem;list-style:none}.nav-right a{font-family:var(--jm);font-size:.72rem;font-weight:400;color:var(--sl);padding:.35rem .8rem;border-radius:3px;transition:all .15s;letter-spacing:.04em;text-transform:uppercase}.nav-right a:hover{background:rgba(255,255,255,.07)}.nav-right .nav-cta{background:var(--gm);color:var(--cream)}.nav-right .nav-cta:hover{background:var(--g)}
+
+/* ===== HERO ===== */
+.hero{margin-top:52px;min-height:calc(100vh - 52px);background:var(--cream);display:flex;align-items:center;position:relative;overflow:hidden}
+.topo-bg{position:absolute;top:5%;right:2%;width:500px;height:500px;pointer-events:none;opacity:.04}
+.mountain-scene{position:absolute;bottom:0;left:0;right:0;height:60%;pointer-events:none}
+.truck-on-mountain{position:absolute;bottom:32%;right:28%;width:48px;height:auto;color:var(--gd);opacity:.35;transform:rotate(-12deg);animation:truckDrive 2s ease-out .5s both}
+@keyframes truckDrive{from{transform:rotate(-12deg) translate(80px,40px);opacity:0}to{transform:rotate(-12deg) translate(0,0);opacity:.35}}
+.dust{position:absolute;bottom:30%;right:24%;opacity:0;animation:dustPuff 2s ease-out 1.2s both}
+.dust-dot{fill:var(--tan);opacity:.2}
+@keyframes dustPuff{0%{opacity:0;transform:translate(0,0)}30%{opacity:1}100%{opacity:0;transform:translate(30px,5px)}}
+
+.hero-inner{position:relative;z-index:2;padding:3rem 5rem 6rem;max-width:800px}
+.hero-h1{font-family:var(--jmw);font-size:clamp(2.6rem,5.5vw,4.8rem);font-weight:400;line-height:1.05;letter-spacing:.02em;color:var(--forest);margin-bottom:1.8rem;text-transform:uppercase}.hero-h1 .hl{color:var(--gm)}
+.hero-p{font-family:var(--body);font-size:1.05rem;font-weight:500;line-height:1.65;color:var(--gd);max-width:520px;margin-bottom:2.5rem}
+.hero-btns{display:flex;gap:.75rem;flex-wrap:wrap}
+.btn{padding:.85rem 2rem;font-family:var(--jm);font-size:.85rem;font-weight:400;letter-spacing:.05em;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;transition:all .2s}
+.btn-fill{background:var(--or);color:#fff}.btn-fill:hover{background:var(--orl);transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--forest);border:2px solid var(--sand)}.btn-ghost:hover{border-color:var(--tan)}
+.hero-tags{margin-top:3rem;display:flex;gap:.5rem;flex-wrap:wrap}
+.htag{font-family:var(--mono);font-size:.56rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.4rem .7rem;border-radius:3px;border:1.5px solid var(--sand);color:var(--gd);background:rgba(255,255,255,.5)}.htag.soon{border-style:dashed;opacity:.5}
+
+/* ===== MARQUEE ===== */
+.marquee{background:var(--forest);padding:.65rem 0;overflow:hidden;white-space:nowrap}
+.marquee-track{display:inline-flex;animation:mscroll 35s linear infinite}
+.marquee-item{font-family:var(--jm);font-size:.6rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:var(--tan);padding:0 2rem}
+.marquee-dot{color:var(--gm);padding:0 .3rem}
+@keyframes mscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ===== PRODUCTS ===== */
+.products{padding:5rem 5rem 5.5rem;background:var(--bone)}
+.sec-top{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem;flex-wrap:wrap;gap:1rem}
+.sec-top h2{font-family:var(--jmw);font-size:clamp(2rem,3.5vw,2.8rem);font-weight:400;color:var(--forest);letter-spacing:.02em;line-height:1.05;text-transform:uppercase}.sec-top h2 span{color:var(--gm)}
+.sec-top p{font-family:var(--body);font-size:.88rem;font-weight:500;color:var(--gd);max-width:320px;line-height:1.5;text-align:right}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.pcard{background:var(--cream);border:2px solid var(--sand);border-radius:5px;padding:1.6rem;transition:all .2s}
+.pcard:hover{border-color:var(--tan);transform:translateY(-2px);box-shadow:0 8px 24px rgba(28,46,31,.06)}
+.pcard-cat{font-family:var(--mono);font-size:.52rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--g);margin-bottom:.65rem}
+.pcard h3{font-family:var(--jm);font-size:1.1rem;font-weight:400;color:var(--forest);margin-bottom:.45rem;line-height:1.15;letter-spacing:.02em;text-transform:uppercase}
+.pcard p{font-family:var(--body);font-size:.8rem;font-weight:500;line-height:1.5;color:var(--gd);margin-bottom:.7rem}
+.pcard-price{font-family:var(--mono);font-size:.76rem;font-weight:700;color:var(--or)}
+
+/* ===== PROCESS ===== */
+.process{background:var(--sl);border-top:3px solid var(--sand);border-bottom:3px solid var(--sand);padding:4.5rem 5rem;display:flex;gap:4rem}
+.process-left{min-width:280px;max-width:300px}
+.process-left h2{font-family:var(--jmw);font-size:2rem;font-weight:400;color:var(--forest);letter-spacing:.02em;line-height:1.1;margin-bottom:.8rem;text-transform:uppercase}
+.process-left p{font-family:var(--body);font-size:.88rem;font-weight:500;color:var(--gd);line-height:1.6}
+.process-right{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.pstep{background:var(--bone);border:2px solid var(--sand);border-radius:5px;padding:1.4rem}.pstep:hover{border-color:var(--tan)}
+.pstep-n{font-family:var(--mono);font-size:1.6rem;font-weight:700;color:var(--sand);line-height:1;margin-bottom:.35rem}
+.pstep h4{font-family:var(--jm);font-size:.95rem;font-weight:400;color:var(--forest);margin-bottom:.3rem;letter-spacing:.03em;text-transform:uppercase}
+.pstep p{font-family:var(--body);font-size:.78rem;font-weight:500;line-height:1.5;color:var(--gd)}
+
+/* ===== SENTINEL ===== */
+.sentinel{background:var(--forest);color:var(--cream);padding:5.5rem 5rem;position:relative;overflow:hidden}
+.sentinel::after{content:'';position:absolute;top:0;right:0;width:40%;height:100%;background:linear-gradient(180deg,rgba(78,140,87,.06) 0%,transparent 100%);pointer-events:none}
+.sent-head{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:end;margin-bottom:3rem;position:relative;z-index:2}
+.sent-head h2{font-family:var(--jmw);font-size:clamp(2.2rem,4vw,3.4rem);font-weight:400;letter-spacing:.02em;line-height:1.05;text-transform:uppercase}.sent-head h2 span{color:var(--gl)}
+.sent-head-right p{font-family:var(--body);font-size:.95rem;font-weight:500;color:var(--sage);line-height:1.6;margin-bottom:1.5rem}
+.sent-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;position:relative;z-index:2}
+.sc{background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.08);border-radius:5px;padding:1.3rem;transition:border-color .2s}.sc:hover{border-color:rgba(255,255,255,.18)}
+.sc h4{font-family:var(--jm);font-size:.88rem;font-weight:400;color:var(--cream);margin-bottom:.25rem;letter-spacing:.03em;text-transform:uppercase}
+.sc p{font-family:var(--body);font-size:.76rem;font-weight:500;line-height:1.45;color:var(--sage)}
+.sent-bar{margin-top:2.5rem;display:flex;border:1.5px solid rgba(255,255,255,.08);border-radius:5px;overflow:hidden;position:relative;z-index:2}
+.sb{flex:1;padding:.85rem 1rem;text-align:center;border-right:1px solid rgba(255,255,255,.05)}.sb:last-child{border:none}
+.sb-v{font-family:var(--jm);font-size:.95rem;font-weight:400;color:var(--tl);letter-spacing:.03em}.sb-k{font-family:var(--mono);font-size:.48rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--sage);margin-top:.1rem}
+
+/* ===== ABOUT ===== */
+.about{background:var(--cream);border-top:3px solid var(--sand);padding:5rem 5rem;display:grid;grid-template-columns:1.3fr .7fr;gap:4rem;align-items:start}
+.about-main h2{font-family:var(--jmw);font-size:2.2rem;font-weight:400;color:var(--forest);letter-spacing:.02em;line-height:1.1;margin-bottom:1.5rem;text-transform:uppercase}
+.about-main p{font-family:var(--body);font-size:.95rem;font-weight:500;line-height:1.75;color:var(--gd);margin-bottom:1rem;max-width:560px}
+.about-main strong{font-weight:800;color:var(--forest)}
+.about-side{background:var(--bone);border:2px solid var(--sand);border-radius:5px;overflow:hidden}
+.about-side-head{background:var(--gd);padding:.9rem 1.3rem;font-family:var(--jm);font-size:.65rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:var(--sage)}
+.arow{display:flex;justify-content:space-between;padding:.6rem 1.3rem;border-bottom:1.5px solid var(--sand);font-size:.82rem}.arow:last-child{border:none}
+.arow-k{font-family:var(--body);font-weight:500;color:var(--gd)}.arow-v{font-family:var(--body);font-weight:800;color:var(--forest)}
+
+/* ===== FOOTER ===== */
+footer{background:var(--forest);padding:2rem 5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.foot-l{font-family:var(--jm);font-size:.72rem;font-weight:400;color:var(--tan);letter-spacing:.06em;text-transform:uppercase}
+.foot-links{display:flex;gap:1.3rem;list-style:none}.foot-links a{font-family:var(--jm);font-size:.72rem;font-weight:400;color:var(--sage);transition:color .15s;letter-spacing:.04em;text-transform:uppercase}.foot-links a:hover{color:var(--cream)}
+.foot-copy{width:100%;text-align:center;font-family:var(--body);font-size:.6rem;font-weight:500;color:var(--gm);margin-top:.8rem;padding-top:.8rem;border-top:1px solid rgba(255,255,255,.06)}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1000px){.hero-inner{padding:3rem 2.5rem 5rem}.products,.process,.sentinel,.about,footer{padding-left:2.5rem;padding-right:2.5rem}.pgrid{grid-template-columns:1fr 1fr}.process{flex-direction:column;gap:2rem}.process-left{max-width:100%}.sent-head{grid-template-columns:1fr}.sent-cards{grid-template-columns:1fr 1fr}.about{grid-template-columns:1fr}}
+@media(max-width:600px){.nav{padding:0 1.2rem}.nav-right a{padding:.3rem .5rem;font-size:.65rem}.hero-inner{padding:2rem 1.5rem 4rem}.products,.process,.sentinel,.about{padding-left:1.5rem;padding-right:1.5rem}.pgrid{grid-template-columns:1fr}.process-right{grid-template-columns:1fr}.sent-cards{grid-template-columns:1fr}.sent-bar{flex-wrap:wrap}.sb{min-width:25%}footer{padding:1.5rem}.sec-top{flex-direction:column;align-items:flex-start}.sec-top p{text-align:left}}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="nav-left">Heritage Interior Systems <span>/ Dubble-O Design Co.</span></div><ul class="nav-right"><li><a href="#products">Products</a></li><li><a href="#process">Process</a></li><li><a href="#sentinel">Sentinel</a></li><li><a href="#about">About</a></li><li><a href="#" class="nav-cta">Shop</a></li></ul></nav>
+
+<section class="hero">
+<svg class="topo-bg" viewBox="0 0 500 500"><g fill="none" stroke="#3D6B44" stroke-width="1.2"><circle cx="250" cy="250" r="240"/><circle cx="248" cy="248" r="200"/><circle cx="246" cy="245" r="160"/><circle cx="244" cy="242" r="120"/><circle cx="242" cy="238" r="85"/><circle cx="240" cy="234" r="52"/><circle cx="238" cy="230" r="24"/></g></svg>
+<svg class="mountain-scene" viewBox="0 0 1440 400" preserveAspectRatio="none">
+  <defs><symbol id="tree" viewBox="0 0 12 20"><line x1="6" y1="8" x2="6" y2="20" stroke="currentColor" stroke-width="1.2"/><path d="M6,2 L1,10 L4,9 L1.5,14 L4.5,13 L3,17 L9,17 L7.5,13 L10.5,14 L8,9 L11,10 Z" fill="currentColor" opacity="0.7"/></symbol></defs>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M0,320 L80,280 L160,300 L260,240 L340,260 L420,210 L520,230 L600,180 L680,200 L760,160 L840,190 L920,150 L1000,175 L1080,140 L1160,165 L1240,130 L1320,155 L1440,120 L1440,400 L0,400Z" fill="rgba(61,107,68,.04)" stroke="rgba(61,107,68,.08)" stroke-width="1.5"/>
+    <path d="M0,360 L100,330 L200,345 L320,300 L420,315 L540,280 L640,295 L720,260 L840,275 L940,240 L1060,260 L1160,230 L1280,250 L1440,215 L1440,400 L0,400Z" fill="rgba(61,107,68,.03)" stroke="rgba(61,107,68,.06)" stroke-width="1.2"/>
+    <path d="M0,385 L120,365 L280,375 L400,350 L560,360 L680,340 L820,355 L960,335 L1100,348 L1260,330 L1440,342 L1440,400 L0,400Z" fill="rgba(196,169,109,.04)" stroke="rgba(196,169,109,.08)" stroke-width="1"/>
+    <path d="M1440,380 C1350,370 1280,355 1200,338 C1120,320 1060,305 1000,288 C940,272 880,262 820,275" stroke="rgba(196,169,109,.12)" stroke-width="3" stroke-dasharray="8,6" fill="none"/>
+  </g>
+  <g color="rgba(61,107,68,.08)">
+    <use href="#tree" x="200" y="330" width="10" height="18"/>
+    <use href="#tree" x="350" y="305" width="8" height="14"/>
+    <use href="#tree" x="500" y="285" width="10" height="18"/>
+    <use href="#tree" x="580" y="275" width="7" height="12"/>
+    <use href="#tree" x="700" y="260" width="10" height="18"/>
+    <use href="#tree" x="780" y="268" width="8" height="14"/>
+    <use href="#tree" x="900" y="248" width="10" height="18"/>
+    <use href="#tree" x="1050" y="256" width="7" height="12"/>
+    <use href="#tree" x="1150" y="235" width="10" height="18"/>
+    <use href="#tree" x="1300" y="248" width="8" height="14"/>
+    <use href="#tree" x="150" y="355" width="7" height="12"/>
+    <use href="#tree" x="430" y="318" width="9" height="16"/>
+    <use href="#tree" x="650" y="280" width="8" height="14"/>
+    <use href="#tree" x="850" y="258" width="7" height="12"/>
+    <use href="#tree" x="1000" y="268" width="9" height="16"/>
+    <use href="#tree" x="1200" y="240" width="8" height="14"/>
+  </g>
+</svg>
+<svg class="truck-on-mountain" viewBox="0 0 200 70" width="56" height="20">
+  <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 16,50 L 16,38 L 22,32 L 30,28 L 42,22 C 52,17 58,14 62,13 L 108,10 C 116,10 122,12 126,14 L 140,18 L 160,20 L 178,24 L 186,30 L 192,38 L 194,42 L 194,50"/>
+    <line x1="58" y1="9" x2="148" y2="9" stroke-width="2"/>
+    <circle cx="46" cy="52" r="11" stroke-width="2.5"/><circle cx="46" cy="52" r="5" stroke-width="1.5"/>
+    <circle cx="168" cy="52" r="11" stroke-width="2.5"/><circle cx="168" cy="52" r="5" stroke-width="1.5"/>
+    <path d="M 64,14 L 64,25 L 138,25 L 138,19" stroke-width="1.8"/>
+    <line x1="102" y1="12" x2="102" y2="25" stroke-width="1.5"/>
+  </g>
+</svg>
+<svg class="dust" width="40" height="20" viewBox="0 0 40 20"><circle class="dust-dot" cx="5" cy="10" r="3"/><circle class="dust-dot" cx="15" cy="7" r="2.5" opacity=".15"/><circle class="dust-dot" cx="12" cy="14" r="2" opacity=".12"/><circle class="dust-dot" cx="25" cy="9" r="1.8" opacity=".08"/><circle class="dust-dot" cx="22" cy="15" r="1.5" opacity=".06"/><circle class="dust-dot" cx="33" cy="11" r="1.2" opacity=".04"/></svg>
+
+<div class="hero-inner">
+<h1 class="hero-h1">We scanned our old Yotas to make interior parts that <span class="hl">actually work</span> with life in 2026.</h1>
+<p class="hero-p">USB-C where the cigarette lighter was. A cupholder that fits a Nalgene. Drawer systems that use every inch. Shift knobs made from concrete and cork. All designed from sub-millimeter 3D scans of the trucks we own and drive every day.</p>
+<div class="hero-btns"><a href="#products" class="btn btn-fill">See What We Make</a><a href="#" class="btn btn-ghost">Build Thread on IH8MUD</a></div>
+<div class="hero-tags"><span class="htag">GX470</span><span class="htag">5th Gen 4Runner</span><span class="htag">1st Gen Tundra</span><span class="htag soon">100-Series LC</span></div>
+</div>
+</section>
+
+<div class="marquee"><div class="marquee-track"><span class="marquee-item">3D Scanned Fitment</span><span class="marquee-dot">&bull;</span><span class="marquee-item">Bambu Lab X1C</span><span class="marquee-dot">&bull;</span><span class="marquee-item">Thunder Laser Nova 51</span><span class="marquee-dot">&bull;</span><span class="marquee-item">CNC Router</span><span class="marquee-dot">&bull;</span><span class="marquee-item">ASA + Cork + Concrete</span><span class="marquee-dot">&bull;</span><span class="marquee-item">Fusion 360</span><span class="marquee-dot">&bull;</span><span class="marquee-item">It Fits or We Fix It</span><span class="marquee-dot">&bull;</span><span class="marquee-item">Chelsea MI</span><span class="marquee-dot">&bull;</span><span class="marquee-item">3D Scanned Fitment</span><span class="marquee-dot">&bull;</span><span class="marquee-item">Bambu Lab X1C</span><span class="marquee-dot">&bull;</span><span class="marquee-item">Thunder Laser Nova 51</span><span class="marquee-dot">&bull;</span><span class="marquee-item">CNC Router</span><span class="marquee-dot">&bull;</span><span class="marquee-item">ASA + Cork + Concrete</span><span class="marquee-dot">&bull;</span><span class="marquee-item">Fusion 360</span><span class="marquee-dot">&bull;</span><span class="marquee-item">It Fits or We Fix It</span><span class="marquee-dot">&bull;</span><span class="marquee-item">Chelsea MI</span><span class="marquee-dot">&bull;</span></div></div>
+
+<section class="products" id="products">
+<div class="sec-top"><h2>What we <span>make.</span></h2><p>Every part starts as a 3D scan and gets test-fit on a real truck before it ships.</p></div>
+<div class="pgrid">
+<div class="pcard"><div class="pcard-cat">Signature</div><h3>Concrete &amp; Cork Shift Knobs</h3><p>CNC-milled molds, hand-cast concrete, cork grip bands. Laser-engraved. Heavy, warm, satisfying.</p><div class="pcard-price">From $65</div></div>
+<div class="pcard"><div class="pcard-cat">Console</div><h3>Button Delete &amp; Repurpose Panels</h3><p>USB-C fast charge, aux outputs, voltmeters, or clean deletes. Scanned from your exact console cluster.</p><div class="pcard-price">From $85</div></div>
+<div class="pcard"><div class="pcard-cat">Interior</div><h3>Oversized Cupholder Inserts</h3><p>Expand factory holders for Nalgenes and Yeti ramblers. Scan-fit with laser-cut cork liners.</p><div class="pcard-price">From $45</div></div>
+<div class="pcard"><div class="pcard-cat">Storage</div><h3>Cargo &amp; Under-Seat Drawers</h3><p>CNC-cut plywood drawers from your cargo floor scan data. Felt liners, printed brackets, hardware included.</p><div class="pcard-price">From $250</div></div>
+<div class="pcard"><div class="pcard-cat">Tech</div><h3>Head Unit Bezel &amp; Wiring Kits</h3><p>Scan-perfect bezel for aftermarket head units. Plug-and-play harness with JBL integration.</p><div class="pcard-price">From $275</div></div>
+<div class="pcard"><div class="pcard-cat">Safety</div><h3>Backup Camera Kits</h3><p>Scan-fit camera housing, complete wiring, display integration, and printed install guide.</p><div class="pcard-price">From $185</div></div>
+</div>
+</section>
+
+<section class="process" id="process">
+<div class="process-left"><h2>How every part gets made.</h2><p>Three machines working from common scan data. Design once in Fusion 360, fabricate across the shop.</p></div>
+<div class="process-right">
+<div class="pstep"><div class="pstep-n">01</div><h4>3D Scan</h4><p>Sub-millimeter capture of interior surfaces. Every curve, clip, and screw boss digitized.</p></div>
+<div class="pstep"><div class="pstep-n">02</div><h4>CAD Design</h4><p>Modeled against scan geometry in Fusion 360. Virtual fitment before cutting anything.</p></div>
+<div class="pstep"><div class="pstep-n">03</div><h4>Fabricate</h4><p>X1C prints ASA structure. Nova 51 engraves trim. CNC machines molds, wood, panels.</p></div>
+<div class="pstep"><div class="pstep-n">04</div><h4>Test &amp; Ship</h4><p>Test-fit on our truck. Install guide in the box. It fits, or we make it right.</p></div>
+</div>
+</section>
+
+<section class="sentinel" id="sentinel">
+<div class="sent-head"><h2>Project<br><span>Sentinel.</span></h2><div class="sent-head-right"><p>A complete AI-powered infotainment system built on the NVIDIA Orin Nano. Four cameras, radar, a 10" touchscreen, and real-time vision AI. Modern safety tech for trucks that never had it.</p><a href="#" class="btn btn-fill">Join the Waitlist</a></div></div>
+<div class="sent-cards">
+<div class="sc"><h4>Wireless CarPlay + Android Auto</h4><p>10-11" touchscreen in a scan-fit bezel. Standalone offline nav for off-grid use.</p></div>
+<div class="sc"><h4>4-Camera AI Vision</h4><p>Object detection, pedestrian alerts, blind spot monitoring. YOLO models running on-device in real time.</p></div>
+<div class="sc"><h4>Road Sign Recognition</h4><p>Reads speed limits, stop signs, school zones, no-turn-on-red. On-screen display with audio alerts.</p></div>
+<div class="sc"><h4>Radar Sensor Fusion</h4><p>77GHz mmWave for collision warnings in rain, fog, darkness. Camera + radar working together.</p></div>
+<div class="sc"><h4>4-Channel Dashcam</h4><p>Continuous recording to NVMe SSD. Auto-save on impact. GPS-tagged and timestamped footage.</p></div>
+<div class="sc"><h4>OTA Updates</h4><p>New AI models via Wi-Fi. The hardware stays. The intelligence improves. Buy once, upgrade forever.</p></div>
+</div>
+<div class="sent-bar">
+<div class="sb"><div class="sb-v">67 TOPS</div><div class="sb-k">AI Compute</div></div>
+<div class="sb"><div class="sb-v">Orin Nano</div><div class="sb-k">Processor</div></div>
+<div class="sb"><div class="sb-v">4 Cameras</div><div class="sb-k">Vision</div></div>
+<div class="sb"><div class="sb-v">2x 77GHz</div><div class="sb-k">Radar</div></div>
+<div class="sb"><div class="sb-v">10-11"</div><div class="sb-k">Display</div></div>
+<div class="sb"><div class="sb-v">Wi-Fi 6</div><div class="sb-k">Connectivity</div></div>
+<div class="sb"><div class="sb-v">7-25W</div><div class="sb-k">Power</div></div>
+<div class="sb"><div class="sb-v">GX470</div><div class="sb-k">First Vehicle</div></div>
+</div>
+</section>
+
+<section class="about" id="about">
+<div class="about-main"><h2>A family shop in Chelsea, Michigan.</h2><p><strong>Heritage Interior Systems</strong> is a product line from Dubble-O Design Co. We own a GX470, a 4Runner, and a Tundra. We got tired of choosing between ill-fitting parts from overseas and $2,000 custom work. So we bought a 3D scanner and started making parts ourselves.</p><p>We scan our trucks. Design in Fusion 360. Print on two Bambu X1Cs, cut and engrave on a Thunder Laser Nova 51, machine on a CNC router. Every part gets test-fit before it ships. If it doesn't fit, we fix it.</p></div>
+<div class="about-side"><div class="about-side-head">The Shop</div><div class="arow"><span class="arow-k">Location</span><span class="arow-v">Chelsea, MI 48118</span></div><div class="arow"><span class="arow-k">Printers</span><span class="arow-v">2x Bambu Lab X1C</span></div><div class="arow"><span class="arow-k">Laser</span><span class="arow-v">Thunder Laser Nova 51</span></div><div class="arow"><span class="arow-k">CNC</span><span class="arow-v">Shapeoko 5.1 Pro</span></div><div class="arow"><span class="arow-k">Material</span><span class="arow-v">ASA (UV + heat stable)</span></div><div class="arow"><span class="arow-k">CAD</span><span class="arow-v">Fusion 360</span></div><div class="arow"><span class="arow-k">Vehicles</span><span class="arow-v">GX470 / 4Runner / Tundra</span></div><div class="arow"><span class="arow-k">Guarantee</span><span class="arow-v">It fits or we fix it</span></div></div>
+</section>
+
+<footer><div class="foot-l">Heritage Interior Systems — Dubble-O Design Co.</div><ul class="foot-links"><li><a href="#">Shop</a></li><li><a href="#">IH8MUD</a></li><li><a href="#">Instagram</a></li><li><a href="#">YouTube</a></li><li><a href="#">Contact</a></li></ul><div class="foot-copy">© 2026 Dubble-O Design Co. — Chelsea, Michigan</div></footer>
+</body>
+</html>
